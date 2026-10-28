@@ -1,30 +1,19 @@
-# Validación local
+﻿# Comprobación del rediseño — 28 de octubre de 2026
 
-Fecha: 27 de octubre de 2026. Navegador: Google Chrome headless, controlado por Chrome DevTools Protocol.
+## Ejecutado
 
-## Pruebas ejecutadas
+- `node --check js/script.js`: sintaxis correcta.
+- Comprobación local de referencias src/href y JSON-LD: sin archivos ausentes, JSON válido.
+- Chrome headless local, emulación a 375, 768, 1440 y 1920 px: sin desbordamiento horizontal, sin imágenes rotas y sin anclas internas inexistentes.
+- Capturas completas: .qa/redesign-375.png, redesign-768.png, redesign-1440.png y redesign-1920.png.
+- Menú a 375 px: abre y se cierra al seguir un enlace.
+- Visor: abre, avanza, retrocede, pasa de la primera a la última, responde a flechas del teclado, cierra mediante su botón y devuelve el foco al enlace inicial.
+- prefers-reduced-motion: la animación de portada queda desactivada.
+- Todas las imágenes mostradas, incluidas las seis WebP finales, se decodificaron correctamente en el navegador.
+- Hoja de contacto con las diez fotografías originales revisada antes del diseño.
 
-- Capturas completas y revisión visual a 375, 768, 1440 y 1920 px. Corregidos el ajuste del nombre en móvil, el botón de menú en escritorio y el encuadre de portada. Sin desbordamiento horizontal en las mediciones finales. LAS BUGANVILLAS permanece completo, con salto entre palabras en móvil.
-- Todas las imágenes decodificadas correctamente en los cuatro anchos, incluidas las diferidas al solicitar su carga. JPEG reales: 1400 × 1855 y 1600 × 1200. No hay imágenes de otras propiedades.
-- Menú móvil: apertura y cierre al seguir un enlace comprobados.
-- Desplegable de equipamiento: apertura comprobada.
-- Ampliación fotográfica: apertura y cierre por botón comprobados.
-- Copiar correo: escritura real y lectura del portapapeles en Chrome con permisos de prueba y documento enfocado. Valor obtenido: casarural.lasbuganvillas@gmail.com. Mensaje de éxito verificado. La alternativa de copia para contextos no seguros no se ha ejecutado.
-- Preferencia de movimiento reducido emulada: reconocida; animación de portada desactivada.
-- Enlaces internos: todos los destinos existen. Rutas locales: sin archivos ausentes. Sintaxis JavaScript validada con `node --check`. JSON-LD parseado correctamente.
-- Contrastes calculados: tinta/cal 11,15:1; buganvilla/cal 4,89:1. El texto buganvilla sobre papel rosado se reserva a titulares y firma grandes; el botón usa texto cal sobre buganvilla.
-- Dirección de email, asunto y consulta de Google Maps revisados en el HTML. No se ha enviado ningún email ni se ha abierto una aplicación de correo; tampoco se han probado las indicaciones externas de Maps.
+Resultados automáticos: .qa/redesign-results.json. Comprobación: .qa/redesign-check.cjs. Las capturas antiguas screen-*.png y results.json corresponden a la versión anterior.
 
-## Accesibilidad implementada y límites
+## Límites
 
-HTML semántico, idioma español, enlace de salto, foco visible, controles nativos, `aria-expanded` en menú, estado de copia anunciado, diálogo modal nativo y textos alternativos. No se ha realizado auditoría con lector de pantalla, recorrido completo con teclado ni validación externa W3C; no se afirma certificación de accesibilidad. La preferencia de movimiento reducido sí se ha probado.
-
-## Originalidad
-
-Se consultaron HTML y CSS de La Casa del Muro, La Cascada y Manantial de los Cañitos. Las fuentes, navegación, título inicial, ficha horizontal y contacto epistolar se implementaron específicamente para este proyecto. No se ejecutó una comparación visual lado a lado con esos sitios; no se afirma haberla realizado. No se copiaron sus archivos ni sus imágenes.
-
-## Material pendiente de la propiedad
-
-Para ofrecer un recorrido fotográfico propio se necesitan fotografías de Las Buganvillas con autorización de uso acreditada. Mientras tanto se enlaza la ficha pública con fotografías reales y se identifican claramente las imágenes regionales. No hay datos de disponibilidad en tiempo real. Precios, número de camas y registro turístico se omiten por discrepancias entre fuentes.
-
-La entrega es local. Antes de una publicación futura, configurar dominio real, canonical y Open Graph absoluto, y confirmar con la propiedad los servicios y sus condiciones vigentes.
+La emulación de Chrome no sustituye una prueba en Safari ni un iPhone físico. No se ha probado envío real de email, apertura de aplicaciones externas, portapapeles, gestos táctiles físicos ni disponibilidad de servicios externos. No se han vuelto a consultar los directorios externos: los datos proceden de la documentación existente. No se ha desplegado la página.
